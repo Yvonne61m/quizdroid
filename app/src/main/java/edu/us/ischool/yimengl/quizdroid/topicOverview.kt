@@ -16,29 +16,23 @@ class topicOverview: AppCompatActivity()  {
         name.text = txtName
 
         val description = findViewById<TextView>(R.id.txtDescription)
-        val txtDescription = when(txtName) {
-            "Math" -> getString(R.string.quiz1_description)
-            "Physics" -> getString(R.string.quiz2_description)
-            "Marvel Super Heroes" -> getString(R.string.quiz3_description)
-            else -> ""
-        }
+        val desRoute = resources.getIdentifier(txtName + "_description", "string", packageName)
+        val txtDescription = getString(desRoute)
         description.text = txtDescription
 
-        val qNum = findViewById<TextView>(R.id.txtQNum)
-        val txtQNum = when(txtName) {
-            "Math" -> getString(R.string.quiz1_QNum)
-            "Physics" -> getString(R.string.quiz2_QNum)
-            "Marvel Super Heroes" -> getString(R.string.quiz3_QNum)
-            else -> ""
-        }
-        qNum.text = "There are " + txtQNum + " questions"
+        val total = findViewById<TextView>(R.id.txtQNum)
+        val totalRoute = resources.getIdentifier(txtName + "_total", "string", packageName)
+        val txtTotal = getString(totalRoute)
+        total.text = "There are " + txtTotal + " questions"
 
         val btnBegin = findViewById<Button>(R.id.btnBegin)
         btnBegin.setOnClickListener() {
             val intent = Intent(this, question:: class.java)
             intent.putExtra("topicName",txtName)
             intent.putExtra("questionIndex",1)
-            intent.putExtra("questionNum", txtQNum)
+            intent.putExtra("questionNum", txtTotal.toInt())
+            intent.putExtra("correct", 0)
+            intent.putExtra("incorrect",0)
             startActivity(intent)
         }
     }

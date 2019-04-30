@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="Physics_description">This is a Physics Quiz!</string>
+        <string name="Physics_total">3</string>
+
+        <string name="Physics_Q1">The laws of physics tell us that energy is:</string>
+        <array name="Physics_Q1_Answers">
+            <item>Conserved</item>
+            <item>Concerned</item>
+            <item>Constant</item>
+            <item>Contained</item>
+        </array>
+        <string name="Physics_Q1_correctA">Conserved</string>
+
+        <string name="Physics_Q2">Which of the following is not a form of energy?</string>
+        <array name="Physics_Q2_Answers">
+            <item>Light</item>
+            <item>Friction</item>
+            <item>Heat</item>
+            <item>Sound</item>
+        </array>
+        <string name="Physics_Q2_correctA">Friction</string>
+
+        <string name="Physics_Q3">What’s the difference between weight and mass?</string>
+        <array name="Physics_Q3_Answers">
+            <item>No difference</item>
+            <item>Mass is the amount of matter in an object, weight is the gravitational force on an object</item>
+            <item>Mass is metric, weight is imperial</item>
+            <item>Mass is a measure of size, weight is a measure of density</item>
+        </array>
+        <string name="Physics_Q3_correctA">Mass is the amount of matter in an object, weight is the gravitational force on an object</string>
+
+</resources>
