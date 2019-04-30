@@ -4,24 +4,30 @@
     <string name="MarvelSuperHeroes_total">3</string>
 
     <string name="MarvelSuperHeroes_Q1">Which is the real name of Iron Man?</string>
-    <string name="MarvelSuperHeroes_Q1_A1">Sansa Stark</string>
-    <string name="MarvelSuperHeroes_Q1_A2">Arya Stark</string>
-    <string name="MarvelSuperHeroes_Q1_A3">Tony Stark</string>
-    <string name="MarvelSuperHeroes_Q1_A4">Brandon Stark</string>
+    <array name="MarvelSuperHeroes_Q1_Answers">
+        <item>Sansa Stark</item>
+        <item>Arya Stark</item>
+        <item>Tony Stark</item>
+        <item>Brandon Stark</item>
+    </array>
     <string name="MarvelSuperHeroes_Q1_correctA">Tony Stark</string>
 
     <string name="MarvelSuperHeroes_Q2">Which of the following is not a Marvel Super Hero?</string>
-    <string name="MarvelSuperHeroes_Q2_A1">Captain America</string>
-    <string name="MarvelSuperHeroes_Q2_A2">Hulk</string>
-    <string name="MarvelSuperHeroes_Q2_A3">Thor</string>
-    <string name="MarvelSuperHeroes_Q2_A4">Super Man</string>
+    <array name="MarvelSuperHeroes_Q2_Answers">
+        <item>Captain America</item>
+        <item>Hulk</item>
+        <item>Thor</item>
+        <item>Super Man</item>
+    </array>
     <string name="MarvelSuperHeroes_Q2_correctA">Super Man</string>
 
     <string name="MarvelSuperHeroes_Q3">How many avengers movies are there?</string>
-    <string name="MarvelSuperHeroes_Q3_A1">1</string>
-    <string name="MarvelSuperHeroes_Q3_A2">2</string>
-    <string name="MarvelSuperHeroes_Q3_A3">3</string>
-    <string name="MarvelSuperHeroes_Q3_A4">4</string>
-    <string name="MarvelSuperHeroes_Q3_correctA">4</string>
+    <array name="MarvelSuperHeroes_Q3_Answers">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+    </array>
+    <string name="MarvelSuperHeroes_Q3_correctA">"4"</string>
 
 </resources>

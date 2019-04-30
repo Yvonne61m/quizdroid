@@ -12,7 +12,7 @@ class topicOverview: AppCompatActivity()  {
         setContentView(R.layout.activity_topic_overview)
 
         val name = findViewById<TextView>(R.id.txtTopicName)
-        val txtName = intent.getStringExtra("item")
+        val txtName = intent.getStringExtra("item").replace(" ","")
         name.text = txtName
 
         val description = findViewById<TextView>(R.id.txtDescription)

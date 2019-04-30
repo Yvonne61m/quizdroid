@@ -13,11 +13,11 @@ class answer: AppCompatActivity() {
 
         val yourAnswer = findViewById<TextView>(R.id.txtYourAnswer)
         val txtYourAnswer = intent.getStringExtra("userAnswer")
-        yourAnswer.text = txtYourAnswer
+        yourAnswer.text = "Your Answer: " + txtYourAnswer
 
         val correctAnswer = findViewById<TextView>(R.id.txtCorrectAnswer)
         val txtCorrectAnswer = intent.getStringExtra("correctAnswer")
-        correctAnswer.text = txtCorrectAnswer
+        correctAnswer.text = "Correct Answer: " + txtCorrectAnswer
 
         val currentScore = findViewById<TextView>(R.id.txtScore)
         val txtCurrentCorrect = intent.getIntExtra("correct",0)
@@ -34,6 +34,11 @@ class answer: AppCompatActivity() {
             btnNext.text = "Next"
         }
         val questionIndex = intent.getIntExtra("questionIndex", 1)
+        val topicName = intent.getStringExtra("topicName")
+        val questionNum = intent.getIntExtra("questionNum", 3)
+        val correct = intent.getIntExtra("correct", 0)
+        val incorrect = intent.getIntExtra("incorrect", 0)
+
 
         btnNext.setOnClickListener() {
             if (isLastQuestion) {
@@ -42,6 +47,10 @@ class answer: AppCompatActivity() {
             } else {
                 val intent = Intent(this, question::class.java)
                 intent.putExtra("questionIndex", questionIndex + 1)
+                intent.putExtra("topicName", topicName)
+                intent.putExtra("questionNum", questionNum)
+                intent.putExtra("correct", correct)
+                intent.putExtra("incorrect", incorrect)
                 startActivity(intent)
             }
         }

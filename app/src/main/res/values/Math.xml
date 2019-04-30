@@ -5,26 +5,29 @@
 
     <string name="Math_Q1">Which one is prime number?</string>
     <array name="Math_Q1_Answers">
-
+        <item>"4"</item>
+        <item>"11"</item>
+        <item>"39"</item>
+        <item>"25"</item>
     </array>
-    <string name="Math_Q1_A1">4</string>
-    <string name="Math_Q1_A2">11</string>
-    <string name="Math_Q1_A3">39</string>
-    <string name="Math_Q1_A4">25</string>
-    <string name="Math_Q1_correctA">11</string>
+    <string name="Math_Q1_correctA">"11"</string>
 
     <string name="Math_Q2">11 * 11 = ?</string>
-    <string name="Math_Q2_A1">121</string>
-    <string name="Math_Q2_A2">211</string>
-    <string name="Math_Q2_A3">321</string>
-    <string name="Math_Q2_A4">161</string>
-    <string name="Math_Q2_correctA">121</string>
+    <array name="Math_Q2_Answers">
+        <item>"121"</item>
+        <item>"211"</item>
+        <item>"321"</item>
+        <item>"161"</item>
+    </array>
+    <string name="Math_Q2_correctA">"121"</string>
 
     <string name="Math_Q3">How many seconds is 9 minutes and 10 seconds?</string>
-    <string name="Math_Q3_A1">176</string>
-    <string name="Math_Q3_A2">1290</string>
-    <string name="Math_Q3_A3">580</string>
-    <string name="Math_Q3_A4">550</string>
-    <string name="Math_Q3_correctA">550</string>
+    <array name="Math_Q3_Answers">
+        <item>"176"</item>
+        <item>"1290"</item>
+        <item>"580"</item>
+        <item>"550"</item>
+    </array>
+    <string name="Math_Q3_correctA">"550"</string>
 
 </resources>
