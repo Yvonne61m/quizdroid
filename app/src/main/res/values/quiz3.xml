@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quiz3_description">This is a Marvel Super Heroes Quiz!</string>
+    <string name="quiz3_QNum">3</string>
+
+    <string name="quiz3_question1">Which is the real name of Iron Man?</string>
+    <string name="quiz3_question1_answer1">Sansa Stark</string>
+    <string name="quiz3_question1_answer2">Arya Stark</string>
+    <string name="quiz3_question1_answer3">Tony Stark</string>
+    <string name="quiz3_question1_answer4">Brandon Stark</string>
+    <string name="quiz3_question1_correctAnswer">Tony Stark</string>
+
+    <string name="quiz3_question2">Which of the following is not a Marvel Super Hero?</string>
+    <string name="quiz3_question2_answer1">Captain America</string>
+    <string name="quiz3_question2_answer2">Hulk</string>
+    <string name="quiz3_question2_answer3">Thor</string>
+    <string name="quiz3_question2_answer4">Super Man</string>
+    <string name="quiz3_question2_correctAnswer">Super Man</string>
+
+    <string name="quiz3_question3">How many avengers movies are there?</string>
+    <string name="quiz3_question3_answer1">1</string>
+    <string name="quiz3_question3_answer2">2</string>
+    <string name="quiz3_question3_answer3">3</string>
+    <string name="quiz3_question3_answer4">4</string>
+    <string name="quiz3_question3_correctAnswer">4</string>
+
+</resources>

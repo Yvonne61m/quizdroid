@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="quiz2_description">This is a Physics Quiz!</string>
+        <string name="quiz2_QNum">3</string>
+
+        <string name="quiz2_question1">The laws of physics tell us that energy is:</string>
+        <string name="quiz2_question1_answer1">Conserved</string>
+        <string name="quiz2_question1_answer2">Concerned</string>
+        <string name="quiz2_question1_answer3">Constant</string>
+        <string name="quiz2_question1_answer4">Contained</string>
+        <string name="quiz2_question1_correctAnswer">Conserved</string>
+
+        <string name="quiz2_question2">Which of the following is not a form of energy?</string>
+        <string name="quiz2_question2_answer1">Light</string>
+        <string name="quiz2_question2_answer2">Friction</string>
+        <string name="quiz2_question2_answer3">Heat</string>
+        <string name="quiz2_question2_answer4">Sound</string>
+        <string name="quiz2_question2_correctAnswer">Friction</string>
+
+        <string name="quiz2_question3">What’s the difference between weight and mass?</string>
+        <string name="quiz2_question3_answer1">No difference</string>
+        <string name="quiz2_question3_answer2">Mass is the amount of matter in an object, weight is the gravitational force on an object</string>
+        <string name="quiz2_question3_answer3">Mass is metric, weight is imperial</string>
+        <string name="quiz2_question3_answer4">Mass is a measure of size, weight is a measure of density</string>
+        <string name="quiz2_question3_correctAnswer">Mass is the amount of matter in an object, weight is the gravitational force on an object</string>
+
+</resources>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuizDroid</string>
+    <string name="txtName">Topic Name</string>
+    <string name="txtDes">Topic Description</string>
+    <string name="txtQNum">Topic Questions: 3</string>
+    <string name="btnBegin">Begin</string>
+    <string name="txtQ">Question</string>
+    <string name="txtSocre">Current Score</string>
+    <string name="txtYourAnswer">Your Answer</string>
+    <string name="txtCorrectAnswer">Correct Answer</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="btnNext">Next</string>
+</resources>
