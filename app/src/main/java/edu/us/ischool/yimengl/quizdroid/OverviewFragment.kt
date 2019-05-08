@@ -9,7 +9,6 @@ import android.widget.TextView
 import android.widget.Button
 
 
-
 class OverviewFragment : Fragment() {
     companion object {
         private lateinit var topic: String
@@ -37,7 +36,7 @@ class OverviewFragment : Fragment() {
         val btnBegin = view.findViewById<Button>(R.id.btnBegin)
         val total = view.findViewById<TextView>(R.id.txtQNum)
 
-        topic = arguments?.getString("topic") as String
+        topic = arguments!!.getString("topic") as String
         name.text = topic
 
         val desRoute = resources.getIdentifier(topic + "_description", "string", getActivity()!!.getPackageName())
@@ -48,7 +47,7 @@ class OverviewFragment : Fragment() {
         val txtTotal = getString(totalRoute)
         total.text = "There are " + txtTotal + " questions"
         btnBegin.setOnClickListener() {
-            val questionFragment = QuestionFragment.newInstance(topic, 1, 0,0)
+            val questionFragment = QuestionFragment.newInstance(topic,1, 0,0)
             val transaction = fragmentManager!!.beginTransaction()
             transaction.replace(R.id.fragments, questionFragment)
             transaction.addToBackStack(null)

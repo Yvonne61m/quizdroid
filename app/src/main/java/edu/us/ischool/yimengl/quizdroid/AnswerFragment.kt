@@ -1,39 +1,27 @@
 package edu.us.ischool.yimengl.quizdroid
 
-import  android.content.Context
-import android.net.Uri
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [example1.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [example1.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
-class example1 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+class AnswerFragment : Fragment() {
+    companion object {
+        fun newInstance(topic: String, questionIndex: Int, correct: Int, incorrect: Int, userAnswer: String): AnswerFragment {
+            val fragment = AnswerFragment()
+            val bundle = Bundle()
+            bundle.putString("topic", topic)
+            bundle.putInt("questionIndex", questionIndex)
+            bundle.putInt("correct", correct)
+            bundle.putInt("incorrect", incorrect)
+            bundle.putString("userAnswer", userAnswer)
+            fragment.arguments = bundle
+            return fragment
         }
     }
 
@@ -41,62 +29,52 @@ class example1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_answer, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_answer, container, false)
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
+        val yourAnswer = view.findViewById<TextView>(R.id.txtYourAnswer)
+        val currentScore = view.findViewById<TextView>(R.id.txtScore)
+        val correctAnswer = view.findViewById<TextView>(R.id.txtCorrectAnswer)
+        val btnNext = view.findViewById<Button>(R.id.btnNext)
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
+        val topic = arguments!!.getString("topic") as String
+        val questionIndex = arguments!!.getInt("questionIndex",1)
+        var correct = arguments!!.getInt("correct",0)
+        var incorrect = arguments!!.getInt("incorrect",0)
+        val userAnswer = arguments!!.getString("userAnswer")
+
+        val correctAnswerRoute = resources.getIdentifier(topic + "_Q" + questionIndex + "_correctA", "string", getActivity()!!.getPackageName())
+        val txtCorrectAnswer = getString(correctAnswerRoute)
+        val totalAnswer = correct + incorrect
+        val totalRoute = resources.getIdentifier(topic + "_total", "string", getActivity()!!.getPackageName())
+        val total = getString(totalRoute).toInt()
+
+        correctAnswer.text = "Correct Answer: " + txtCorrectAnswer
+        yourAnswer.text = "Your Answer: " + userAnswer
+        currentScore.text = "Your Current Score: " + correct.toString() + " / " + totalAnswer.toString()
+
+        var isLastQuestion = false
+        if ( total == totalAnswer) {
+            isLastQuestion = true
+            btnNext.text = "Finish"
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            btnNext.text = "Next"
         }
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment example1.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            example1().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        btnNext.setOnClickListener() {
+            val transaction = fragmentManager!!.beginTransaction()
+            if (isLastQuestion) {
+                val intent = Intent(activity, MainActivity::class.java)
+                startActivity(intent)
+            } else {
+                val questionFragment = QuestionFragment.newInstance(topic, questionIndex + 1, correct, incorrect)
+                transaction.replace(R.id.fragments,questionFragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
             }
+        }
+
+        return view
     }
+
+
 }
