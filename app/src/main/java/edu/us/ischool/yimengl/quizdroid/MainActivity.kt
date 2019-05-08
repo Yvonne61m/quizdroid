@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         List.adapter = adapter
         List.setOnItemClickListener{
             parent, view, position, id ->
-            val intent = Intent(this, topicOverview::class.java)
+            val intent = Intent(this, FragmentActivity::class.java)
             intent.putExtra("item", items[position])
             startActivity(intent)
         }

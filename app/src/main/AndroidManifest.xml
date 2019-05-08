@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".topicOverview" />
-        <activity android:name=".answer" />
-        <activity android:name=".question"/>
+        <activity android:name=".FragmentActivity" />
+        <!--<activity android:name=".answer" />-->
+        <!--<activity android:name=".question"/>-->
     </application>
 
 </manifest>

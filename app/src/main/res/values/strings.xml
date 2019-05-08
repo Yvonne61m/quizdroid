@@ -10,4 +10,7 @@
     <string name="txtCorrectAnswer">Correct Answer</string>
     <string name="btnSubmit">Submit</string>
     <string name="btnNext">Next</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
