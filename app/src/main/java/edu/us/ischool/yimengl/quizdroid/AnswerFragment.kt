@@ -81,7 +81,6 @@ class AnswerFragment : Fragment() {
                 transaction.commit()
             }
         }
-
         return view
     }
 

@@ -50,7 +50,6 @@ class QuestionFragment : Fragment() {
             quizTopic = QuizApp().getTopic(2)
         }
 
-
         val questionIndex = arguments!!.getInt("questionIndex",1)
         var correct = arguments!!.getInt("correct",0)
         var incorrect = arguments!!.getInt("incorrect",0)
