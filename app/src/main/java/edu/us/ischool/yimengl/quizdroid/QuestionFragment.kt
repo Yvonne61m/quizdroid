@@ -41,13 +41,13 @@ class QuestionFragment : Fragment() {
         topic = arguments!!.getString("topic") as String
         lateinit var quizTopic: TopicRepository.Topic
         if (topic == "Math") {
-            quizTopic = QuizApp().getTopic(0)
+            quizTopic = QuizApp.getInstance().getTopic(0)
 
         } else if (topic == "Physics") {
-            quizTopic = QuizApp().getTopic(1)
+            quizTopic = QuizApp.getInstance().getTopic(1)
 
         } else if (topic == "MarvelSuperHeroes") {
-            quizTopic = QuizApp().getTopic(2)
+            quizTopic = QuizApp.getInstance().getTopic(2)
         }
 
         val questionIndex = arguments!!.getInt("questionIndex",1)
