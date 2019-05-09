@@ -39,15 +39,26 @@ class OverviewFragment : Fragment() {
         topic = arguments!!.getString("topic") as String
         name.text = topic
 
-        val desRoute = resources.getIdentifier(topic + "_description", "string", getActivity()!!.getPackageName())
-        val txtDescription = getString(desRoute)
-        description.text = txtDescription
+        var txtDescription = ""
+        var txtTotal = 0
+        lateinit var quizTopic: TopicRepository.Topic
+        if (topic == "Math") {
+            quizTopic = QuizApp().getTopic(0)
 
-        val totalRoute = resources.getIdentifier(topic + "_total", "string", getActivity()!!.getPackageName())
-        val txtTotal = getString(totalRoute)
+        } else if (topic == "Physics") {
+            quizTopic = QuizApp().getTopic(1)
+
+        } else if (topic == "MarvelSuperHeroes") {
+            quizTopic = QuizApp().getTopic(2)
+        }
+
+        txtDescription = quizTopic.longDes
+        txtTotal = quizTopic.questions.size
+        description.text = txtDescription
         total.text = "There are " + txtTotal + " questions"
+
         btnBegin.setOnClickListener() {
-            val questionFragment = QuestionFragment.newInstance(topic,1, 0,0)
+            val questionFragment = QuestionFragment.newInstance(topic,0, 0,0)
             val transaction = fragmentManager!!.beginTransaction()
             transaction.replace(R.id.fragments, questionFragment)
             transaction.addToBackStack(null)

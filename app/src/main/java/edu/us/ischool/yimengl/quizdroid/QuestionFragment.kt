@@ -39,20 +39,29 @@ class QuestionFragment : Fragment() {
         val btnSubmit = view.findViewById<Button>(R.id.btnSubmit)
 
         topic = arguments!!.getString("topic") as String
+        lateinit var quizTopic: TopicRepository.Topic
+        if (topic == "Math") {
+            quizTopic = QuizApp().getTopic(0)
+
+        } else if (topic == "Physics") {
+            quizTopic = QuizApp().getTopic(1)
+
+        } else if (topic == "MarvelSuperHeroes") {
+            quizTopic = QuizApp().getTopic(2)
+        }
+
+
         val questionIndex = arguments!!.getInt("questionIndex",1)
         var correct = arguments!!.getInt("correct",0)
         var incorrect = arguments!!.getInt("incorrect",0)
-        val currentQuestionRoute = resources.getIdentifier(topic + "_Q" + questionIndex,"string", getActivity()!!.getPackageName())
-        val txtQuestion = getString(currentQuestionRoute)
-
+        val txtQuestion = quizTopic.questions[questionIndex].question
         name.text = topic
         question.text = txtQuestion
 
         val answerButtons = radioGroup.touchables
         for (i in 0..3) {
             val answerButton = answerButtons[i] as RadioButton
-            val anRoute = resources.getIdentifier(topic + "_Q" + questionIndex + "_Answers", "array", getActivity()!!.getPackageName())
-            val txtAnswer = resources.getStringArray(anRoute)[i]
+            val txtAnswer = quizTopic.questions[questionIndex].answers[i]
             answerButton.text = txtAnswer
         }
 
@@ -61,10 +70,7 @@ class QuestionFragment : Fragment() {
             btnSubmit.isEnabled = true
         }
 
-        val correctAnswerRoute = resources.getIdentifier(topic + "_Q" + questionIndex + "_correctA", "string", getActivity()!!.getPackageName())
-        val correctAnswer = getString(correctAnswerRoute)
-        val totalRoute = resources.getIdentifier(topic + "_total", "string", getActivity()!!.getPackageName())
-        val Total = getString(totalRoute)
+        val correctAnswer = quizTopic.questions[questionIndex].answers[quizTopic.questions[questionIndex].correct - 1]
 
         btnSubmit.setOnClickListener() {
             val userAnswer = view.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text as String

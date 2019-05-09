@@ -37,16 +37,25 @@ class AnswerFragment : Fragment() {
         val btnNext = view.findViewById<Button>(R.id.btnNext)
 
         val topic = arguments!!.getString("topic") as String
-        val questionIndex = arguments!!.getInt("questionIndex",1)
-        var correct = arguments!!.getInt("correct",0)
-        var incorrect = arguments!!.getInt("incorrect",0)
+        lateinit var quizTopic: TopicRepository.Topic
+        if (topic == "Math") {
+            quizTopic = QuizApp().getTopic(0)
+
+        } else if (topic == "Physics") {
+            quizTopic = QuizApp().getTopic(1)
+
+        } else if (topic == "MarvelSuperHeroes") {
+            quizTopic = QuizApp().getTopic(2)
+        }
+
+        val questionIndex = arguments!!.getInt("questionIndex",0)
+        val correct = arguments!!.getInt("correct",0)
+        val incorrect = arguments!!.getInt("incorrect",0)
         val userAnswer = arguments!!.getString("userAnswer")
 
-        val correctAnswerRoute = resources.getIdentifier(topic + "_Q" + questionIndex + "_correctA", "string", getActivity()!!.getPackageName())
-        val txtCorrectAnswer = getString(correctAnswerRoute)
+        val txtCorrectAnswer = quizTopic.questions[questionIndex].answers[quizTopic.questions[questionIndex].correct - 1]
         val totalAnswer = correct + incorrect
-        val totalRoute = resources.getIdentifier(topic + "_total", "string", getActivity()!!.getPackageName())
-        val total = getString(totalRoute).toInt()
+        val total = quizTopic.questions.size
 
         correctAnswer.text = "Correct Answer: " + txtCorrectAnswer
         yourAnswer.text = "Your Answer: " + userAnswer
